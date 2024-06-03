@@ -1,0 +1,23 @@
+{
+  "answers_filename": "..\\..\\..\\..\\BOOLEANOUTPUTS128.json",
+  "inputs_filename": "..\\..\\..\\..\\BOOLEANINPUTS128.json",
+  "answers_test_filename": "..\\..\\..\\..\\BOOLEANOUTPUTS128.json",
+  "inputs_test_filename": "..\\..\\..\\..\\BOOLEANINPUTS128.json",
+  "create_answers_from_inputs": false,
+  "net_save_file": "..\\..\\..\\..\\nn_defaul_save.nn_save",
+  "inputs": 10,
+  "outputs": 1,
+  "hiddenlayers": [
+    5,
+    4,
+    2
+  ],
+  "lr": 0.8534432383205526,
+  "acelleration": 0.3,
+  "use_stochastic_gradient_descent": false,
+  "use_multithreading": true,
+  "threads_count": 10,
+  "stop_learn_at": 0.012,
+  "epochs_count": 3000,
+  "input_transformation": "nothing"
+}
