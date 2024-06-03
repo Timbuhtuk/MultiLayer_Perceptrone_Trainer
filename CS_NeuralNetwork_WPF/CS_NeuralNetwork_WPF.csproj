@@ -13,8 +13,7 @@
 
   <ItemGroup>
     <Reference Include="CS_NeuralNetwork">
-      <HintPath>..\..\CSNeuralNet-master\C#N_own\obj\Debug\CS_NeuralNetwork.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\CS_NeuralNetwork.dll</HintPath>
     </Reference>
   </ItemGroup>
 
