@@ -1,0 +1,48 @@
+﻿<Window x:Class="CS_NeuralNetwork_WPF.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CS_NeuralNetwork_WPF.View"
+        mc:Ignorable="d"
+        Title="Perceptrone" MinHeight="145" MinWidth="210">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.InputBindings>
+        <KeyBinding Key="F1" Modifiers="Control" Command="{Binding Net_Window_Spawn}" />
+        <KeyBinding Key="F2" Modifiers="Control" Command="{Binding Data_Window_Spawn}"/>
+        <KeyBinding Key="F3" Modifiers="Control" Command="{Binding Learn_Window_Spawn}"/>
+        <KeyBinding Key="F5" Modifiers="Control" Command="{Binding Run}"/>
+    </Window.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="280" MinWidth="190"/>
+            <ColumnDefinition MaxWidth="280" MinWidth="0"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu Height="22" Name="menu" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Panel.ZIndex="5">
+            <MenuItem Header="Menu">
+                <MenuItem Header="Net" IsEnabled="{Binding Can_Run}" Command="{Binding Net_Window_Spawn}" InputGestureText="Ctrl+F1" />
+                <MenuItem Header="Data" IsEnabled="{Binding Can_Run}" Command="{Binding Data_Window_Spawn}"  InputGestureText="Ctrl+F2" />
+                <MenuItem Header="Learn" IsEnabled="{Binding Can_Learn}" Command="{Binding Learn_Window_Spawn}"  InputGestureText="Ctrl+F3" />
+            </MenuItem>
+            <MenuItem Header="Load" Command="{Binding Load}"/>
+            <MenuItem Header="Save" Command="{Binding Save}"/>
+            <MenuItem Header="Run" IsEnabled="{Binding Can_Run}" Command="{Binding Run}">
+                <MenuItem  Header="Run Learn" IsEnabled="{Binding Can_Run}" Command="{Binding Run}" InputGestureText="Ctrl+F5" />
+                <MenuItem  Header="Run " IsEnabled="{Binding Can_Run}" Command="{Binding Run_no_learn}"/>
+            </MenuItem>
+            <MenuItem Header="Stop" IsEnabled="{Binding Can_Stop}" Command="{Binding Stop}"/>
+
+        </Menu>
+        <TextBlock Grid.Column="0" Margin="5,25,5,0" Text="{Binding Output}" TextWrapping="WrapWithOverflow" Foreground="#ffc851"/>
+        <TextBlock Grid.Column="1" Margin="5,25,10,0" Text="{Binding Config_str}" TextWrapping="WrapWithOverflow"/>
+        <local:NetVier Grid.Column="2" Margin="5,25,10,0" x:Name="NetVier1" Panel.ZIndex="5" Background="Transparent"/>
+    </Grid>
+</Window>
